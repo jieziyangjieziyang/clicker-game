@@ -211,10 +211,11 @@ function showToast(text, color) {
     elParticleLayer.appendChild(toast);
     
     toast.animate([
-        { left: startX+'px', top: startY+'px', opacity: 0 },
-        { left: targetX+'px', top: targetY+'px', opacity: 1 },
-        { left: targetX+'px', top: targetY-30+'px', opacity: 0 }
-    ], { duration: 1500, easing: 'ease-out' }).onfinish = () => toast.remove();
+        { left: startX+'px', top: startY+'px', opacity: 0, offset: 0 },
+        { left: targetX+'px', top: targetY+'px', opacity: 1, offset: 0.2 },
+        { left: targetX+'px', top: targetY-15+'px', opacity: 1, offset: 0.8 },
+        { left: targetX+'px', top: targetY-30+'px', opacity: 0, offset: 1 }
+    ], { duration: 2000, easing: 'ease-out' }).onfinish = () => toast.remove();
 }
 
 function refreshCursors() {
@@ -296,9 +297,10 @@ function spawnClickParticle(isCrit, offsetX=0, rect) {
     const ty = cy + Math.sin(angle) * dist - 50;
     
     p.animate([
-        { left: cx+'px', top: cy+'px', opacity: 1 },
-        { left: tx+'px', top: ty+'px', opacity: 0 }
-    ], { duration: 600, easing: 'ease-out' }).onfinish = () => p.remove();
+        { left: cx+'px', top: cy+'px', opacity: 1, offset: 0 },
+        { left: (cx+tx)/2+'px', top: (cy+ty)/2+'px', opacity: 1, offset: 0.7 },
+        { left: tx+'px', top: ty+'px', opacity: 0, offset: 1 }
+    ], { duration: 800, easing: 'ease-out' }).onfinish = () => p.remove();
 }
 
 function spawnLaser(rect) {
@@ -320,9 +322,10 @@ function spawnLaser(rect) {
         const ty = cy + Math.sin(angle) * 300;
         
         l.animate([
-            { left: cx+'px', top: cy+'px', opacity: 1 },
-            { left: tx+'px', top: ty+'px', opacity: 0 }
-        ], { duration: 400, easing: 'linear' }).onfinish = () => l.remove();
+            { left: cx+'px', top: cy+'px', opacity: 1, offset: 0 },
+            { left: (cx+tx)/2+'px', top: (cy+ty)/2+'px', opacity: 1, offset: 0.8 },
+            { left: tx+'px', top: ty+'px', opacity: 0, offset: 1 }
+        ], { duration: 500, easing: 'linear' }).onfinish = () => l.remove();
     }
 }
 
