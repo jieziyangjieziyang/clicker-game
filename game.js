@@ -285,7 +285,7 @@ function spawnClickParticle(isCrit, offsetX=0, rect) {
     const p = document.createElement('div');
     p.className = 'particle';
     p.innerText = isCrit ? '💥' : getClickParticle();
-    p.style.fontSize = isCrit ? '40px' : Math.floor(20+Math.random()*10) + 'px';
+    p.style.fontSize = isCrit ? '60px' : Math.floor(30+Math.random()*15) + 'px';
     p.style.left = cx + 'px';
     p.style.top = cy + 'px';
     elParticleLayer.appendChild(p);
@@ -309,6 +309,7 @@ function spawnLaser(rect) {
     for(let i=0; i<4; i++) {
         const l = document.createElement('div');
         l.className = 'laser';
+        l.style.fontSize = '45px';
         l.innerText = chars[Math.floor(Math.random()*chars.length)];
         l.style.left = cx + 'px';
         l.style.top = cy + 'px';
@@ -492,7 +493,7 @@ setInterval(() => {
         const p = document.createElement('div');
         p.className = 'particle';
         p.innerText = char;
-        p.style.fontSize = (20 + Math.random()*20) + 'px';
+        p.style.fontSize = (30 + Math.random()*30) + 'px';
         const sx = Math.random() * window.innerWidth;
         p.style.left = sx + 'px';
         p.style.top = '-50px';
