@@ -286,7 +286,7 @@ function spawnClickParticle(isCrit, offsetX=0, rect) {
     const p = document.createElement('div');
     p.className = 'particle';
     p.innerText = isCrit ? '💥' : getClickParticle();
-    p.style.fontSize = isCrit ? '60px' : Math.floor(30+Math.random()*15) + 'px';
+    p.style.fontSize = isCrit ? '80px' : Math.floor(40+Math.random()*20) + 'px';
     p.style.left = cx + 'px';
     p.style.top = cy + 'px';
     elParticleLayer.appendChild(p);
@@ -311,7 +311,7 @@ function spawnLaser(rect) {
     for(let i=0; i<4; i++) {
         const l = document.createElement('div');
         l.className = 'laser';
-        l.style.fontSize = '45px';
+        l.style.fontSize = '60px';
         l.innerText = chars[Math.floor(Math.random()*chars.length)];
         l.style.left = cx + 'px';
         l.style.top = cy + 'px';
@@ -386,7 +386,7 @@ function doManualClick(fromAuto=false) {
         power *= mult;
         if(!fromAuto) {
             elMainBtn.innerHTML = `<span class="emoji">💥</span><br><span>爆擊! x${mult}</span>`;
-            setTimeout(() => elMainBtn.innerHTML = `<span class="emoji">🍪</span><br><span>烤餅乾！</span>`, 300);
+            setTimeout(() => elMainBtn.innerHTML = `<span class="emoji">🍪</span><br><span>點擊這裡</span>`, 300);
             document.body.style.backgroundColor = UPGRADES['supernova'].count > 0 ? '#ffffff' : '#4a1515';
             setTimeout(() => document.body.style.backgroundColor = 'var(--bg-dark)', 100);
         } else {
