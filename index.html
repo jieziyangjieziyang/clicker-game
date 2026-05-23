@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>無限點擊器 - 豪華版 (Web)</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 背景與全域特效層 -->
+        <div id="background-fx"></div>
+        <div id="particle-layer"></div>
+
+        <!-- 左側：遊戲互動區 -->
+        <div id="game-panel">
+            <h1 id="score-display">0 餅乾</h1>
+            <p id="cps-display">每秒生產: 0.0</p>
+            <p id="click-info">點擊一次: +1.0 | 爆擊機率: 0%</p>
+            
+            <div id="progress-container">
+                <p id="goal-label">通關目標: 0 / 100,000,000 餅乾 (0.00%)</p>
+                <div class="progress-track">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+
+            <!-- 主點擊按鈕 -->
+            <button id="main-click-btn">
+                <span class="emoji">🍪</span><br>
+                <span>烤餅乾！</span>
+            </button>
+        </div>
+
+        <!-- 右側：商店升級區 -->
+        <div id="store-panel">
+            <h2 class="store-title">🛒 升級商店</h2>
+            <div id="upgrades-container">
+                <!-- JavaScript 將動態生成升級卡片 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 彈出視窗層 (Modal) -->
+    <div id="modal-overlay" class="hidden">
+        <div id="modal-content">
+            <h2 id="modal-title">標題</h2>
+            <p id="modal-desc">描述內容</p>
+            <div id="modal-buttons"></div>
+        </div>
+    </div>
+
+    <!-- 訊息提示層 (Toast) -->
+    <div id="toast-container"></div>
+
+    <script src="./game.js"></script>
+</body>
+</html>
